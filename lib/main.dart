@@ -1,46 +1,84 @@
+// ignore_for_file: prefer_const_constructors
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(
-    const MaterialApp(
-      title: 'Flutter Tutorial',
-      home: TutorialHome(),
-    ),
-  );
-}
-
-class TutorialHome extends StatelessWidget {
-  const TutorialHome({Key? key}) : super(key: key);
+class LayoutRow extends StatelessWidget {
+  const LayoutRow({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    // Scaffold is a layout for
-    // the major Material Components.
-    return Scaffold(
-      appBar: AppBar(
-        leading: const IconButton(
-          icon: Icon(Icons.menu),
-          tooltip: 'Navigation menu',
-          onPressed: null,
-        ),
-        title: const Text('Example title'),
-        // actions: const [
-        //   IconButton(
-        //     icon: Icon(Icons.search),
-        //     tooltip: 'Search',
-        //     onPressed: null,
-        //   ),
-        // ],
-      ),
-      // body is the majority of the screen.
-      body: const Center(
-        child: Text('Hello, world!'),
-      ),
-      floatingActionButton: const FloatingActionButton(
-        tooltip: 'Add', // used by assistive technologies
-        child: Icon(Icons.add),
-        onPressed: null,
-      ),
-    );
+    return MaterialApp(
+        home: Scaffold(
+            appBar: AppBar(
+              flexibleSpace: SafeArea(
+                  // ignore: avoid_unnecessary_containers
+                  child: Container(
+                child: Column(
+                  children: [
+                    Row(
+                      children: const [
+                        IconButton(
+                          icon: Icon(Icons.menu),
+                          tooltip: 'Navigation menu',
+                          onPressed: null, // null disables the button
+                        ),
+                        Spacer(),
+                        Text(
+                          'Kantin Politeknik Kampar',
+                          textAlign: TextAlign.center,
+                        ),
+                        Spacer()
+                      ],
+                    )
+                  ],
+                ),
+              )),
+            ),
+            // ignore: avoid_unnecessary_containers
+            body: Container(
+              child: Column(
+                children: [
+                  Row(
+                    children: const [
+                      Text(
+                        'kolom Pertama baris Pertama',
+                        textAlign: TextAlign.left,
+                      ),
+                      Spacer(),
+                      Text(
+                        'kolom kedua baris Pertama',
+                        textAlign: TextAlign.center,
+                      ),
+                      Spacer(),
+                      Text(
+                        'kolom Ketiga baris Pertama',
+                        textAlign: TextAlign.right,
+                      ),
+                    ],
+                  ),
+                  Row(
+                    children: const [
+                      Text(
+                        'kolom Pertama baris kedua',
+                        textAlign: TextAlign.left,
+                      ),
+                      Spacer(),
+                      Text(
+                        'kolom kedua baris kedua',
+                        textAlign: TextAlign.center,
+                      ),
+                      Spacer(),
+                      Text(
+                        'kolom ketiga baris kedua',
+                        textAlign: TextAlign.right,
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            )));
   }
+}
+
+void main() {
+  runApp(LayoutRow());
 }
