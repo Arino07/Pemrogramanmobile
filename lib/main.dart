@@ -1,21 +1,16 @@
-// ignore_for_file: prefer_const_constructors
 import 'package:flutter/material.dart';
 
 class LayoutRow extends StatelessWidget {
-  const LayoutRow({Key? key}) : super(key: key);
-
-  @override
   Widget build(BuildContext context) {
     return MaterialApp(
         home: Scaffold(
             appBar: AppBar(
               flexibleSpace: SafeArea(
-                  // ignore: avoid_unnecessary_containers
                   child: Container(
                 child: Column(
                   children: [
                     Row(
-                      children: const [
+                      children: [
                         IconButton(
                           icon: Icon(Icons.menu),
                           tooltip: 'Navigation menu',
@@ -23,7 +18,7 @@ class LayoutRow extends StatelessWidget {
                         ),
                         Spacer(),
                         Text(
-                          'Kantin Politeknik Kampar',
+                          'KANTIN POLKAM',
                           textAlign: TextAlign.center,
                         ),
                         Spacer()
@@ -33,46 +28,24 @@ class LayoutRow extends StatelessWidget {
                 ),
               )),
             ),
-            // ignore: avoid_unnecessary_containers
             body: Container(
               child: Column(
                 children: [
                   Row(
-                    children: const [
+                    children: [
                       Text(
-                        'kolom Pertama baris Pertama',
+                        'NASI GORENG',
                         textAlign: TextAlign.left,
                       ),
                       Spacer(),
-                      Text(
-                        'kolom kedua baris Pertama',
-                        textAlign: TextAlign.center,
-                      ),
-                      Spacer(),
-                      Text(
-                        'kolom Ketiga baris Pertama',
-                        textAlign: TextAlign.right,
-                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Image.asset('lib/assets/gambar/nasigoreng.jpg'),
+                        ],
+                      )
                     ],
-                  ),
-                  Row(
-                    children: const [
-                      Text(
-                        'kolom Pertama baris kedua',
-                        textAlign: TextAlign.left,
-                      ),
-                      Spacer(),
-                      Text(
-                        'kolom kedua baris kedua',
-                        textAlign: TextAlign.center,
-                      ),
-                      Spacer(),
-                      Text(
-                        'kolom ketiga baris kedua',
-                        textAlign: TextAlign.right,
-                      ),
-                    ],
-                  ),
+                  )
                 ],
               ),
             )));
